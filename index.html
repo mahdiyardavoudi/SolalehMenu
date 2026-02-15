@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منوی غرفه غذا</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Vazirmatn', system-ui, sans-serif;
+    }
+    
+    /* Artistic Background with Watercolor Effect */
+    .menu-pattern {
+      background: linear-gradient(135deg, #1C39BB 0%, #0C77A4 50%, #1C39BB 100%);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .menu-pattern::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(246, 190, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(246, 190, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      animation: floatPattern 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes floatPattern {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(20px, -20px) rotate(5deg); }
+    }
+    
+    #app-wrapper {
+      position: relative;
+    }
+    
+    main, header {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-placeholder {
+      border: 4px dashed rgba(246, 190, 0, 0.7);
+      transition: all 0.4s ease;
+      background: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo-placeholder::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(246, 190, 0, 0.1) 0%, transparent 70%);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(10px, 10px); }
+    }
+
+    .logo-placeholder:hover {
+      border-color: #F6BE00;
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 30px rgba(246, 190, 0, 0.3);
+    }
+
+    /* Juice Glass SVG Animation */
+    .juice-glass {
+      animation: glassFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    @keyframes glassFloat {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+
+    .menu-item {
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(12, 119, 164, 0.3) 0%, rgba(12, 119, 164, 0.1) 100%) !important;
+      backdrop-filter: blur(10px);
+    }
+    
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(246, 190, 0, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateX(-8px) skewY(-1deg);
+      border-color: rgba(246, 190, 0, 0.6) !important;
+      box-shadow: 0 8px 25px rgba(246, 190, 0, 0.2);
+    }
+    
+    .menu-item:hover::before {
+      left: 100%;
+    }
+
+    .price-tag {
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .price-tag::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: left 0.4s ease;
+    }
+
+    .menu-item:hover .price-tag {
+      transform: scale(1.1);
+    }
+    
+    .menu-item:hover .price-tag::after {
+      left: 100%;
+    }
+
+    /* QR Code Section */
+    .qr-section {
+      background: linear-gradient(135deg, rgba(246, 190, 0, 0.15) 0%, rgba(12, 119, 164, 0.15) 100%);
+      border: 3px dashed rgba(246, 190, 0, 0.5);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .qr-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(246, 190, 0, 0.1) 0%, transparent 70%);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    .qr-container {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+    }
+
+    .qr-placeholder {
+      width: 150px;
+      height: 150px;
+      background: white;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: qr-bounce 2s ease-in-out infinite;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #1C39BB;
+    }
+
+    @keyframes qr-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .qr-text {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header enhancement */
+    header {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(246, 190, 0, 0.2);
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes titleGlow {
+      0%, 100% { text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(246, 190, 0, 0.2); }
+      50% { text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(246, 190, 0, 0.4); }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto menu-pattern" style="background-color: #1C39BB;"><!-- Header with Logo and Artistic Juice Glass -->
+   <header class="pt-8 pb-4 px-6">
+    <div class="max-w-2xl mx-auto text-center"><!-- Logo Placeholder -->
+     <div id="logo-container" class="logo-placeholder w-32 h-32 mx-auto rounded-full flex items-center justify-center mb-4 relative"><!-- Artistic Juice Glass SVG -->
+      <svg class="juice-glass" width="100" height="120" viewbox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Glass --> <path d="M 25 30 L 20 110 Q 20 115 25 115 L 75 115 Q 80 115 80 110 L 75 30 Z" fill="rgba(255,255,255,0.15)" stroke="#F6BE00" stroke-width="2" stroke-linejoin="round" /> <!-- Juice --> <path d="M 28 60 L 25 110 Q 25 113 28 113 L 72 113 Q 75 113 75 110 L 72 60 Z" fill="#FF6B35" opacity="0.7" stroke="none" /> <!-- Juice Wave --> <path d="M 28 58 Q 35 52 50 54 Q 65 56 72 58" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" /> <!-- Straw --> <rect x="45" y="10" width="4" height="85" fill="#FF6B35" rx="2" opacity="0.8" /> <rect x="44" y="8" width="6" height="4" fill="#FF6B35" rx="1" opacity="0.9" /> <!-- Bubbles in juice --> <circle cx="35" cy="85" r="2.5" fill="rgba(255,255,255,0.4)" /> <circle cx="55" cy="90" r="2" fill="rgba(255,255,255,0.35)" /> <circle cx="65" cy="80" r="1.5" fill="rgba(255,255,255,0.3)" /> <circle cx="40" cy="75" r="1.8" fill="rgba(255,255,255,0.32)" /> <!-- Shine effect --> <ellipse cx="30" cy="70" rx="3" ry="8" fill="rgba(255,255,255,0.2)" opacity="0.6" />
+      </svg>
+     </div><!-- Booth Name -->
+     <h1 id="booth-name" class="text-4xl font-black mb-2" style="color: #F6BE00;">غرفه غذای ما</h1>
+     <div class="w-24 h-1 mx-auto rounded-full" style="background-color: #F6BE00;"></div>
+    </div>
+   </header><!-- Menu Items -->
+   <main class="px-6 pb-8">
+    <div class="max-w-2xl mx-auto"><!-- Menu Grid -->
+     <div class="grid gap-4"><!-- Item 1 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🍔</span> <span id="item-1-name" class="text-xl font-bold" style="color: #ffffff;">همبرگر مخصوص</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-1-price">۴۵,۰۰۰</span> تومان
+       </div>
+      </div><!-- Item 2 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🌭</span> <span id="item-2-name" class="text-xl font-bold" style="color: #ffffff;">هات‌داگ ویژه</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-2-price">۳۵,۰۰۰</span> تومان
+       </div>
+      </div><!-- Item 3 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🍟</span> <span id="item-3-name" class="text-xl font-bold" style="color: #ffffff;">سیب‌زمینی سرخ‌کرده</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-3-price">۲۰,۰۰۰</span> تومان
+       </div>
+      </div><!-- Item 4 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🥤</span> <span id="item-4-name" class="text-xl font-bold" style="color: #ffffff;">نوشابه</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-4-price">۱۰,۰۰۰</span> تومان
+       </div>
+      </div><!-- Item 5 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🧃</span> <span id="item-5-name" class="text-xl font-bold" style="color: #ffffff;">آبمیوه طبیعی</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-5-price">۱۵,۰۰۰</span> تومان
+       </div>
+      </div><!-- Item 6 -->
+      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+       <div class="flex items-center gap-4"><span class="text-3xl">🍦</span> <span id="item-6-name" class="text-xl font-bold" style="color: #ffffff;">بستنی</span>
+       </div>
+       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-6-price">۱۲,۰۰۰</span> تومان
+       </div>
+      </div>
+     </div><!-- QR Code Section -->
+     <div class="qr-section">
+      <div class="qr-container">
+       <div class="qr-placeholder">
+        QR CODE
+       </div>
+       <p class="qr-text" style="color: #F6BE00;">🔗 QR کد را اسکن کنید</p>
+       <p style="color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 8px;">برای سفارش آنلاین</p>
+      </div>
+     </div><!-- Footer -->
+     <footer class="mt-8 text-center">
+      <p class="text-sm opacity-70" style="color: #F6BE00;">🎉 نمایشگاه مدرسه 🎉</p>
+     </footer>
+    </div>
+   </main>
+  </div>
+  <script>
+    const defaultConfig = {
+      booth_name: 'غرفه غذای ما',
+      item_1_name: 'همبرگر مخصوص',
+      item_1_price: '۴۵,۰۰۰',
+      item_2_name: 'هات‌داگ ویژه',
+      item_2_price: '۳۵,۰۰۰',
+      item_3_name: 'سیب‌زمینی سرخ‌کرده',
+      item_3_price: '۲۰,۰۰۰',
+      item_4_name: 'نوشابه',
+      item_4_price: '۱۰,۰۰۰',
+      item_5_name: 'آبمیوه طبیعی',
+      item_5_price: '۱۵,۰۰۰',
+      item_6_name: 'بستنی',
+      item_6_price: '۱۲,۰۰۰',
+      background_color: '#1C39BB',
+      accent_color: '#F6BE00',
+      card_color: '#0C77A4',
+      text_color: '#ffffff',
+      font_family: 'Vazirmatn'
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('booth-name').textContent = config.booth_name || defaultConfig.booth_name;
+      document.getElementById('item-1-name').textContent = config.item_1_name || defaultConfig.item_1_name;
+      document.getElementById('item-1-price').textContent = config.item_1_price || defaultConfig.item_1_price;
+      document.getElementById('item-2-name').textContent = config.item_2_name || defaultConfig.item_2_name;
+      document.getElementById('item-2-price').textContent = config.item_2_price || defaultConfig.item_2_price;
+      document.getElementById('item-3-name').textContent = config.item_3_name || defaultConfig.item_3_name;
+      document.getElementById('item-3-price').textContent = config.item_3_price || defaultConfig.item_3_price;
+      document.getElementById('item-4-name').textContent = config.item_4_name || defaultConfig.item_4_name;
+      document.getElementById('item-4-price').textContent = config.item_4_price || defaultConfig.item_4_price;
+      document.getElementById('item-5-name').textContent = config.item_5_name || defaultConfig.item_5_name;
+      document.getElementById('item-5-price').textContent = config.item_5_price || defaultConfig.item_5_price;
+      document.getElementById('item-6-name').textContent = config.item_6_name || defaultConfig.item_6_name;
+      document.getElementById('item-6-price').textContent = config.item_6_price || defaultConfig.item_6_price;
+
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+
+      document.getElementById('app-wrapper').style.backgroundColor = bgColor;
+      document.getElementById('booth-name').style.color = accentColor;
+
+      document.querySelectorAll('.menu-item span[id$="-name"]').forEach(el => {
+        el.style.color = textColor;
+        el.style.fontFamily = `${fontFamily}, system-ui, sans-serif`;
+      });
+
+      document.getElementById('booth-name').style.fontFamily = `${fontFamily}, system-ui, sans-serif`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['booth_name', config.booth_name || defaultConfig.booth_name],
+        ['item_1_name', config.item_1_name || defaultConfig.item_1_name],
+        ['item_1_price', config.item_1_price || defaultConfig.item_1_price],
+        ['item_2_name', config.item_2_name || defaultConfig.item_2_name],
+        ['item_2_price', config.item_2_price || defaultConfig.item_2_price],
+        ['item_3_name', config.item_3_name || defaultConfig.item_3_name],
+        ['item_3_price', config.item_3_price || defaultConfig.item_3_price],
+        ['item_4_name', config.item_4_name || defaultConfig.item_4_name],
+        ['item_4_price', config.item_4_price || defaultConfig.item_4_price],
+        ['item_5_name', config.item_5_name || defaultConfig.item_5_name],
+        ['item_5_price', config.item_5_price || defaultConfig.item_5_price],
+        ['item_6_name', config.item_6_name || defaultConfig.item_6_name],
+        ['item_6_price', config.item_6_price || defaultConfig.item_6_price]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ce5b150d721992f',t:'MTc3MTE2NzgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
