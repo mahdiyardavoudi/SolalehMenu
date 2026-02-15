@@ -1,20 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl" class="h-full">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منوی غرفه غذا</title>
+  <title>منوی قهوه و چای</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       font-family: 'Vazirmatn', system-ui, sans-serif;
     }
     
-    /* Artistic Background with Watercolor Effect */
     .menu-pattern {
       background: linear-gradient(135deg, #1C39BB 0%, #0C77A4 50%, #1C39BB 100%);
       background-size: 400% 400%;
@@ -89,13 +87,12 @@
       box-shadow: 0 0 30px rgba(246, 190, 0, 0.3);
     }
 
-    /* Juice Glass SVG Animation */
-    .juice-glass {
-      animation: glassFloat 4s ease-in-out infinite;
+    .coffee-cup {
+      animation: cupFloat 4s ease-in-out infinite;
       filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
     }
 
-    @keyframes glassFloat {
+    @keyframes cupFloat {
       0%, 100% { transform: translateY(0px) rotate(-2deg); }
       50% { transform: translateY(-15px) rotate(2deg); }
     }
@@ -155,7 +152,6 @@
       left: 100%;
     }
 
-    /* QR Code Section */
     .qr-section {
       background: linear-gradient(135deg, rgba(246, 190, 0, 0.15) 0%, rgba(12, 119, 164, 0.15) 100%);
       border: 3px dashed rgba(246, 190, 0, 0.5);
@@ -219,7 +215,6 @@
       z-index: 1;
     }
 
-    /* Header enhancement */
     header {
       position: relative;
       z-index: 2;
@@ -234,161 +229,358 @@
       0%, 100% { text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(246, 190, 0, 0.2); }
       50% { text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(246, 190, 0, 0.4); }
     }
+
+    .category-title {
+      font-size: 24px;
+      font-weight: 900;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid rgba(246, 190, 0, 0.5);
+      color: #F6BE00;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
   </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div id="app-wrapper" class="w-full h-full overflow-auto menu-pattern" style="background-color: #1C39BB;"><!-- Header with Logo and Artistic Juice Glass -->
-   <header class="pt-8 pb-4 px-6">
-    <div class="max-w-2xl mx-auto text-center"><!-- Logo Placeholder -->
-     <div id="logo-container" class="logo-placeholder w-32 h-32 mx-auto rounded-full flex items-center justify-center mb-4 relative"><!-- Artistic Juice Glass SVG -->
-      <svg class="juice-glass" width="100" height="120" viewbox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Glass --> <path d="M 25 30 L 20 110 Q 20 115 25 115 L 75 115 Q 80 115 80 110 L 75 30 Z" fill="rgba(255,255,255,0.15)" stroke="#F6BE00" stroke-width="2" stroke-linejoin="round" /> <!-- Juice --> <path d="M 28 60 L 25 110 Q 25 113 28 113 L 72 113 Q 75 113 75 110 L 72 60 Z" fill="#FF6B35" opacity="0.7" stroke="none" /> <!-- Juice Wave --> <path d="M 28 58 Q 35 52 50 54 Q 65 56 72 58" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" /> <!-- Straw --> <rect x="45" y="10" width="4" height="85" fill="#FF6B35" rx="2" opacity="0.8" /> <rect x="44" y="8" width="6" height="4" fill="#FF6B35" rx="1" opacity="0.9" /> <!-- Bubbles in juice --> <circle cx="35" cy="85" r="2.5" fill="rgba(255,255,255,0.4)" /> <circle cx="55" cy="90" r="2" fill="rgba(255,255,255,0.35)" /> <circle cx="65" cy="80" r="1.5" fill="rgba(255,255,255,0.3)" /> <circle cx="40" cy="75" r="1.8" fill="rgba(255,255,255,0.32)" /> <!-- Shine effect --> <ellipse cx="30" cy="70" rx="3" ry="8" fill="rgba(255,255,255,0.2)" opacity="0.6" />
-      </svg>
-     </div><!-- Booth Name -->
-     <h1 id="booth-name" class="text-4xl font-black mb-2" style="color: #F6BE00;">غرفه غذای ما</h1>
-     <div class="w-24 h-1 mx-auto rounded-full" style="background-color: #F6BE00;"></div>
-    </div>
-   </header><!-- Menu Items -->
-   <main class="px-6 pb-8">
-    <div class="max-w-2xl mx-auto"><!-- Menu Grid -->
-     <div class="grid gap-4"><!-- Item 1 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🍔</span> <span id="item-1-name" class="text-xl font-bold" style="color: #ffffff;">همبرگر مخصوص</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-1-price">۴۵,۰۰۰</span> تومان
-       </div>
-      </div><!-- Item 2 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🌭</span> <span id="item-2-name" class="text-xl font-bold" style="color: #ffffff;">هات‌داگ ویژه</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-2-price">۳۵,۰۰۰</span> تومان
-       </div>
-      </div><!-- Item 3 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🍟</span> <span id="item-3-name" class="text-xl font-bold" style="color: #ffffff;">سیب‌زمینی سرخ‌کرده</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-3-price">۲۰,۰۰۰</span> تومان
-       </div>
-      </div><!-- Item 4 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🥤</span> <span id="item-4-name" class="text-xl font-bold" style="color: #ffffff;">نوشابه</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-4-price">۱۰,۰۰۰</span> تومان
-       </div>
-      </div><!-- Item 5 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🧃</span> <span id="item-5-name" class="text-xl font-bold" style="color: #ffffff;">آبمیوه طبیعی</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-5-price">۱۵,۰۰۰</span> تومان
-       </div>
-      </div><!-- Item 6 -->
-      <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
-       <div class="flex items-center gap-4"><span class="text-3xl">🍦</span> <span id="item-6-name" class="text-xl font-bold" style="color: #ffffff;">بستنی</span>
-       </div>
-       <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;"><span id="item-6-price">۱۲,۰۰۰</span> تومان
-       </div>
+</head>
+<body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto menu-pattern" style="background-color: #1C39BB;">
+    
+    <header class="pt-8 pb-4 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div id="logo-container" class="logo-placeholder w-32 h-32 mx-auto rounded-full flex items-center justify-center mb-4 relative">
+          <svg class="coffee-cup" width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 20 25 L 18 100 Q 18 110 28 110 L 72 110 Q 82 110 82 100 L 80 25 Z" fill="rgba(255,255,255,0.15)" stroke="#F6BE00" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M 25 40 L 23 100 Q 23 107 28 107 L 72 107 Q 77 107 77 100 L 75 40 Z" fill="#8B4513" opacity="0.6" stroke="none"/>
+            <path d="M 85 50 Q 90 45 90 60 Q 90 75 85 80" fill="none" stroke="#F6BE00" stroke-width="2.5" stroke-linecap="round"/>
+            <ellipse cx="50" cy="38" rx="20" ry="6" fill="#A0522D" opacity="0.7"/>
+            <circle cx="35" cy="70" r="1.5" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="55" cy="75" r="1.2" fill="rgba(255,255,255,0.35)"/>
+            <circle cx="45" cy="85" r="1" fill="rgba(255,255,255,0.3)"/>
+            <ellipse cx="28" cy="65" rx="2.5" ry="7" fill="rgba(255,255,255,0.2)" opacity="0.5"/>
+          </svg>
+        </div>
+        
+        <h1 id="booth-name" class="text-4xl font-black mb-2" style="color: #F6BE00;">
+          سلاله
+        </h1>
+        <div class="w-24 h-1 mx-auto rounded-full" style="background-color: #F6BE00;"></div>
       </div>
-     </div><!-- QR Code Section -->
-     <div class="qr-section">
-      <div class="qr-container">
-       <div class="qr-placeholder">
-        QR CODE
-       </div>
-       <p class="qr-text" style="color: #F6BE00;">🔗 QR کد را اسکن کنید</p>
-       <p style="color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 8px;">برای سفارش آنلاین</p>
+    </header>
+
+    <main class="px-6 pb-8">
+      <div class="max-w-3xl mx-auto">
+        
+        <!-- نوشیدنی های گرم -->
+        <div class="category-title">☕ نوشیدنی های گرم</div>
+        <div class="grid gap-4">
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-1-name" class="text-xl font-bold" style="color: #ffffff;">اسپرسو تک</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-1-price">۹۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-2-name" class="text-xl font-bold" style="color: #ffffff;">اسپرسو دبل</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-2-price">۱۱۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-3-name" class="text-xl font-bold" style="color: #ffffff;">لته</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-3-price">۱۳۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-4-name" class="text-xl font-bold" style="color: #ffffff;">موکا</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-4-price">۱۵۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-5-name" class="text-xl font-bold" style="color: #ffffff;">کاپوچینو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-5-price">۱۵۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span id="item-6-name" class="text-xl font-bold" style="color: #ffffff;">کارامل ماکیاتو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              <span id="item-6-price">۱۵۰</span> تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">مانگوکیاتو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۵۵ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">آمریکانو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۲۰ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🍯</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">سیروپ ساده</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۳۰ تومان
+            </div>
+          </div>
+        </div>
+
+        <!-- نوشیدنی های سرد -->
+        <div class="category-title">🧊 نوشیدنی های سرد</div>
+        <div class="grid gap-4">
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🧊</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">آیس آمریکانو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۳۰ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🧊</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">آیس موکا</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۶۰ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🧊</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">آیس کارامل</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۶۰ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🧊</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">آیس کاپوچینو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۶۰ تومان
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🍦</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">افوگاتو</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              ۱۵۰ تومان
+            </div>
+          </div>
+        </div>
+
+        <!-- غذاهای فست فود -->
+        <div class="category-title">🍪 بیسکویت و لقمه</div>
+        <div class="grid gap-4">
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🍪</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">بیسکویت اسکوئید گیم (دالگونا)</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🥞</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">پنکیک</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🧀</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">لقمه ساندویچی پنیر</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🥜</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">لقمه ساندویچی کره بادم زمینی</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🍫</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">لقمه ساندویچی شکلات صبحانه</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🥙</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">لقمه ساندویچی دلخواه</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🫖</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">چای</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">🥛</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">شیر گرم</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+
+          <div class="menu-item rounded-2xl p-4 flex items-center justify-between" style="background-color: rgba(12, 119, 164, 0.3); border: 2px solid rgba(246, 190, 0, 0.3);">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl">☕</span>
+              <span class="text-xl font-bold" style="color: #ffffff;">هات چاکلت</span>
+            </div>
+            <div class="price-tag px-6 py-2 rounded-lg font-black text-lg" style="background-color: #F6BE00; color: #1C39BB;">
+              فقط برای نمایش
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="qr-section">
+          <div class="qr-container">
+            <div class="qr-placeholder">
+              QR CODE
+            </div>
+            <p class="qr-text" style="color: #F6BE00;">
+              🔗 QR کد را اسکن کنید
+            </p>
+            <p style="color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 8px;">
+              برای سفارش آنلاین
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-8 text-center">
+          <p class="text-sm opacity-70" style="color: #F6BE00;">
+            🎉 نمایشگاه مدرسه 🎉
+          </p>
+        </footer>
+
       </div>
-     </div><!-- Footer -->
-     <footer class="mt-8 text-center">
-      <p class="text-sm opacity-70" style="color: #F6BE00;">🎉 نمایشگاه مدرسه 🎉</p>
-     </footer>
-    </div>
-   </main>
+    </main>
+
   </div>
+
   <script>
     const defaultConfig = {
-      booth_name: 'غرفه غذای ما',
-      item_1_name: 'همبرگر مخصوص',
-      item_1_price: '۴۵,۰۰۰',
-      item_2_name: 'هات‌داگ ویژه',
-      item_2_price: '۳۵,۰۰۰',
-      item_3_name: 'سیب‌زمینی سرخ‌کرده',
-      item_3_price: '۲۰,۰۰۰',
-      item_4_name: 'نوشابه',
-      item_4_price: '۱۰,۰۰۰',
-      item_5_name: 'آبمیوه طبیعی',
-      item_5_price: '۱۵,۰۰۰',
-      item_6_name: 'بستنی',
-      item_6_price: '۱۲,۰۰۰',
-      background_color: '#1C39BB',
-      accent_color: '#F6BE00',
-      card_color: '#0C77A4',
-      text_color: '#ffffff',
-      font_family: 'Vazirmatn'
+      booth_name: 'سلاله'
     };
 
     async function onConfigChange(config) {
-      document.getElementById('booth-name').textContent = config.booth_name || defaultConfig.booth_name;
-      document.getElementById('item-1-name').textContent = config.item_1_name || defaultConfig.item_1_name;
-      document.getElementById('item-1-price').textContent = config.item_1_price || defaultConfig.item_1_price;
-      document.getElementById('item-2-name').textContent = config.item_2_name || defaultConfig.item_2_name;
-      document.getElementById('item-2-price').textContent = config.item_2_price || defaultConfig.item_2_price;
-      document.getElementById('item-3-name').textContent = config.item_3_name || defaultConfig.item_3_name;
-      document.getElementById('item-3-price').textContent = config.item_3_price || defaultConfig.item_3_price;
-      document.getElementById('item-4-name').textContent = config.item_4_name || defaultConfig.item_4_name;
-      document.getElementById('item-4-price').textContent = config.item_4_price || defaultConfig.item_4_price;
-      document.getElementById('item-5-name').textContent = config.item_5_name || defaultConfig.item_5_name;
-      document.getElementById('item-5-price').textContent = config.item_5_price || defaultConfig.item_5_price;
-      document.getElementById('item-6-name').textContent = config.item_6_name || defaultConfig.item_6_name;
-      document.getElementById('item-6-price').textContent = config.item_6_price || defaultConfig.item_6_price;
-
-      const bgColor = config.background_color || defaultConfig.background_color;
-      const accentColor = config.accent_color || defaultConfig.accent_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const fontFamily = config.font_family || defaultConfig.font_family;
-
-      document.getElementById('app-wrapper').style.backgroundColor = bgColor;
-      document.getElementById('booth-name').style.color = accentColor;
-
-      document.querySelectorAll('.menu-item span[id$="-name"]').forEach(el => {
-        el.style.color = textColor;
-        el.style.fontFamily = `${fontFamily}, system-ui, sans-serif`;
-      });
-
-      document.getElementById('booth-name').style.fontFamily = `${fontFamily}, system-ui, sans-serif`;
+      const boothName = document.getElementById('booth-name');
+      if (boothName) {
+        boothName.textContent = config.booth_name || defaultConfig.booth_name;
+      }
     }
 
     function mapToCapabilities(config) {
       return {
         recolorables: [
           {
-            get: () => config.background_color || defaultConfig.background_color,
+            get: () => '#1C39BB',
             set: (value) => {
-              config.background_color = value;
-              window.elementSdk.setConfig({ background_color: value });
+              document.getElementById('app-wrapper').style.backgroundColor = value;
+              window.elementSdk?.setConfig({ bg_color: value });
             }
           },
           {
-            get: () => config.accent_color || defaultConfig.accent_color,
+            get: () => '#F6BE00',
             set: (value) => {
-              config.accent_color = value;
-              window.elementSdk.setConfig({ accent_color: value });
+              document.documentElement.style.setProperty('--accent-color', value);
+              window.elementSdk?.setConfig({ accent_color: value });
             }
           },
           {
-            get: () => config.text_color || defaultConfig.text_color,
+            get: () => '#0C77A4',
             set: (value) => {
-              config.text_color = value;
-              window.elementSdk.setConfig({ text_color: value });
+              window.elementSdk?.setConfig({ card_color: value });
             }
           }
         ],
         borderables: [],
         fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
+          get: () => 'Vazirmatn',
           set: (value) => {
-            config.font_family = value;
-            window.elementSdk.setConfig({ font_family: value });
+            document.documentElement.style.fontFamily = `${value}, system-ui, sans-serif`;
+            window.elementSdk?.setConfig({ font_family: value });
           }
         },
         fontSizeable: undefined
@@ -397,19 +589,7 @@
 
     function mapToEditPanelValues(config) {
       return new Map([
-        ['booth_name', config.booth_name || defaultConfig.booth_name],
-        ['item_1_name', config.item_1_name || defaultConfig.item_1_name],
-        ['item_1_price', config.item_1_price || defaultConfig.item_1_price],
-        ['item_2_name', config.item_2_name || defaultConfig.item_2_name],
-        ['item_2_price', config.item_2_price || defaultConfig.item_2_price],
-        ['item_3_name', config.item_3_name || defaultConfig.item_3_name],
-        ['item_3_price', config.item_3_price || defaultConfig.item_3_price],
-        ['item_4_name', config.item_4_name || defaultConfig.item_4_name],
-        ['item_4_price', config.item_4_price || defaultConfig.item_4_price],
-        ['item_5_name', config.item_5_name || defaultConfig.item_5_name],
-        ['item_5_price', config.item_5_price || defaultConfig.item_5_price],
-        ['item_6_name', config.item_6_name || defaultConfig.item_6_name],
-        ['item_6_price', config.item_6_price || defaultConfig.item_6_price]
+        ['booth_name', config.booth_name || defaultConfig.booth_name]
       ]);
     }
 
@@ -422,5 +602,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ce5b150d721992f',t:'MTc3MTE2NzgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
